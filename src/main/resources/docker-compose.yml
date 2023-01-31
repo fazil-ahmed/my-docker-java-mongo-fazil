@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ummahskitchendb:
+    image: mongo:3.6
+    container_name: "ummahskitchendb"
+    ports:
+      - 27017:27017
+  ummahskitchen:
+    image: ummahskitchen
+    container_name: ummahskitchen
+    ports:
+      - 8080:8080
+    links: 
+      - ummahskitchendb
