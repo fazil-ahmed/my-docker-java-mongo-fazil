@@ -1,21 +1,20 @@
-FROM tomcat:8.0.51-jre8-alpine as build
-
-ARG MAVEN_VERSION=3.6.3
-ARG USER_HOME_DIR="/root"
-ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
-
+FROM tomcat:8.0.51-jre8-alpine AS build
+MAINTAINER Fazil Ahmed Hakeem (fazil1997ahmed@gmail.com)
 
 # Install Java.
 RUN apk --update --no-cache add openjdk8 curl
-
 RUN apk add maven
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/default-jvm/
 
-COPY pom.xml /usr/local/service/pom.xml
 COPY src /usr/local/service/src
-WORKDIR /usr/local/service
-RUN mvn clean install -Dskiptests
+COPY pom.xml /usr/local/service
+RUN mvn -f /usr/local/service/pom.xml clean install -DskipTests
+
+
+FROM tomcat:8.0.51-jre8-alpine
+COPY --from=build /usr/local/service/target/ummahskitchen-docker-app.war /usr/local/tomcat/webapps
+WORKDIR /usr/local/tomcat/webapps/
 
 CMD ["catalina.sh","run"]
