@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
   ummahskitchen:
-    image: ummahskitchen
+    build: .
     container_name: ummahskitchen
     ports:
       - 8080:8080
