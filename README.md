@@ -23,7 +23,7 @@ go to root directory in cmd
 
 logs check command
 ------------------
-docker logs <conatiner name>
+docker logs (conatiner name)
 
 remove container
 ---------------
