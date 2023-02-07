@@ -17,8 +17,12 @@ import com.Microservices.Main.API.common.HTTPResponseHandler;
 import com.Microservices.Main.Service.MenuService;
 import com.Microservices.Main.VO.MenuItemsVO;
 
+
+
+
+
 @RestController
-@RequestMapping(RequestMappings.UMMAHS_KITCHEN)
+@RequestMapping(CustomRequestMappings.UMMAHS_KITCHEN)
 public class MenuAPI extends HTTPResponseHandler {
 	
 	private final String EMPLOYEE_ENDPOINTS_RUNNING = "Employee CRUD endpoints are running";
@@ -28,7 +32,7 @@ public class MenuAPI extends HTTPResponseHandler {
 	@Autowired
 	MenuService menuService;
 	
-	@GetMapping(RequestMappings.CONTEXT_PATH)
+	@GetMapping(CustomRequestMappings.CONTEXT_PATH)
 	public String plainRequest() {
 		logger.info("Reached API!!!");
 		return EMPLOYEE_ENDPOINTS_RUNNING;

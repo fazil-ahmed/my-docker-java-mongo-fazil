@@ -3,6 +3,11 @@ services:
   ummahskitchendb:
     image: mongo:3.6
     container_name: "ummahskitchendb"
+    # Below I have added ./data a folder inside the root folder of the Directory
+    # this will make sure the DB is mounted to an folder inside the host machine and secures the data
+    # when multiple containers are aded or deleted
+    volumes:
+       - ./data:/data/db
     ports:
       - 27017:27017
   ummahskitchen:

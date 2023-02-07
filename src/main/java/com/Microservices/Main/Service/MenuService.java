@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.Microservices.Main.DAO.AbstractMenuDAO;
 import com.Microservices.Main.VO.MenuItemsVO;
-import com.Microservices.Main.VO.UsersVO;
 
 @Component
 public class MenuService {
