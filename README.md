@@ -1,4 +1,4 @@
-# my-docker-java-mongo-fazil
+# my-docker-java-mongo-fazil - Monolithic architecture
 This repository contains the dockerized version of my java project using spring boot framework and mongoDB
 
 I will be attaching the docker commands below and the steps to setup the architecture.
